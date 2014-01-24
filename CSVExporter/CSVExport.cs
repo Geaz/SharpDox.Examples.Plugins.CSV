@@ -9,6 +9,12 @@ namespace CSVExporter
     public class CSVExport : IExporter
     {
         /// <summary>
+        /// sharpDox listens on this event to get any warnings.
+        /// All messages will be shown in the build window.
+        /// </summary>
+        public event Action<string> OnRequirementsWarning;
+
+        /// <summary>
         /// sharpDox listens on this event to get any status
         /// messages. All messages will be shown in the progressbar.
         /// </summary>
@@ -28,7 +34,13 @@ namespace CSVExporter
             _csvConfig = csvConfig;
         }
 
-        // The export function gets the parsed solution and the  output path.
+        // This function just returns true. No requirements to check for.
+        public bool CheckRequirements()
+        {
+            return true;
+        }
+
+        // The export function gets the parsed solution and the output path.
         public void Export(SDRepository repository, string outputPath)
         {
             var csv = string.Empty;
