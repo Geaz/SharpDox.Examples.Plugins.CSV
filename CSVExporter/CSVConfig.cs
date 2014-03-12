@@ -1,10 +1,15 @@
 ﻿using System;
 using System.ComponentModel;
 using SharpDox.Sdk.Config;
+using SharpDox.Sdk.Config.Attributes;
 
 namespace CSVExporter
 {
     // The class implements the interface IConfigSection
+    // Set the group name for the propertygrid.
+    // Otherwise your configuration settings will not be shown!
+    // Use the property name of the string as the second parameter.
+    [Name(typeof(CSVStrings), "CSV")]
     public class CSVConfig : IConfigSection
     {
         // The ConfigController will register on this event to get notified
@@ -18,6 +23,10 @@ namespace CSVExporter
 
         // This is our new configitem
         private string _divider = string.Empty;
+
+        // We define some attribute for the property grid
+        [Required]
+        [Name(typeof(CSVStrings), "Divider")]
         public string Divider { get { return _divider; } set { _divider = value; OnPropertyChanged("Divider"); } }
 
         // This guid identifies the configsection in 

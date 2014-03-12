@@ -32,17 +32,14 @@
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="SharpDox.Config">
-      <HintPath>..\..\SharpDox\SharpDox.Core\bin\Debug\SharpDox.Config.dll</HintPath>
-    </Reference>
     <Reference Include="SharpDox.Model">
-      <HintPath>..\..\SharpDox\SharpDox.Core\bin\Debug\SharpDox.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDox.Resources">
-      <HintPath>..\..\SharpDox\SharpDox.Core\bin\Debug\SharpDox.Resources.dll</HintPath>
+      <HintPath>libs\SharpDox.Model.dll</HintPath>
     </Reference>
     <Reference Include="SharpDox.Sdk">
-      <HintPath>..\..\SharpDox\SharpDox.Core\bin\Debug\SharpDox.Sdk.dll</HintPath>
+      <HintPath>libs\SharpDox.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDox.UML">
+      <HintPath>libs\SharpDox.UML.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,17 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSVConfig.cs" />
-    <Compile Include="CSVConfigPage.xaml.cs">
-      <DependentUpon>CSVConfigPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CSVExport.cs" />
+    <Compile Include="CSVStrings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="CSVConfigPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
