@@ -1,8 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using SharpDox.Model;
 using SharpDox.Model.Repository;
 using SharpDox.Sdk.Exporter;
+using System;
+using System.IO;
+using System.Linq;
 
 namespace CSVExporter
 {
@@ -41,10 +42,10 @@ namespace CSVExporter
         }
 
         // The export function gets the parsed solution and the output path.
-        public void Export(SDRepository repository, string outputPath)
+        public void Export(SDProject sdProject, string outputPath)
         {
             var csv = string.Empty;
-            var types = repository.GetAllTypes().OfType<SDType>().Where(o => !o.IsProjectStranger);
+            var types = sdProject.Repositories.Values.Single().GetAllTypes().OfType<SDType>().Where(o => !o.IsProjectStranger);
             
             foreach (var type in types)
             {
