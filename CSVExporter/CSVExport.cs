@@ -1,5 +1,4 @@
 ﻿using SharpDox.Model;
-using SharpDox.Model.Repository;
 using SharpDox.Sdk.Exporter;
 using System;
 using System.IO;
@@ -45,15 +44,19 @@ namespace CSVExporter
         public void Export(SDProject sdProject, string outputPath)
         {
             var csv = string.Empty;
-            var types = sdProject.Repositories.Values.Single().GetAllTypes().OfType<SDType>().Where(o => !o.IsProjectStranger);
-            
-            foreach (var type in types)
+            foreach(var solution in sdProject.Solutions.Values)
             {
-                ExecuteOnStepMessage("Creating entry for " + type.Fullname);
-                csv += string.Format("{1}{0}{2}{0}{3}", _csvConfig.Divider, type.Fullname, type.Name, type.Namespace) + System.Environment.NewLine;
+                // Get all types in the current solution.
+                // Grouped by type identifiers and repositories (targetfx)
+                var types = solution.GetAllSolutionTypes();
+                foreach (var groupedTypes in types.Values)
+                {
+                    var type = groupedTypes.First().Value;
+                    ExecuteOnStepMessage("Creating entry for " + type.Fullname);
+                    csv += string.Format("{1}{0}{2}{0}{3}", _csvConfig.Divider, type.Fullname, type.Name, type.Namespace) + Environment.NewLine;
+                }
             }
-
-            File.WriteAllText(Path.Combine(outputPath, "methods.csv"), csv);
+            File.WriteAllText(Path.Combine(outputPath, "types.csv"), csv);
         }
 
         private void ExecuteOnStepMessage(string message)
