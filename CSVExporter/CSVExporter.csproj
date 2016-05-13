@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,10 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CSVExporter</RootNamespace>
     <AssemblyName>CSVExporter</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,15 +36,15 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="SharpDox.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\sharpDoxSDK.1.0\lib\net40\SharpDox.Model.dll</HintPath>
+      <HintPath>..\packages\sharpDoxSDK.1.1.1\lib\net40\SharpDox.Model.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SharpDox.Sdk, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\sharpDoxSDK.1.0\lib\net40\SharpDox.Sdk.dll</HintPath>
+      <HintPath>..\packages\sharpDoxSDK.1.1.1\lib\net40\SharpDox.Sdk.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SharpDox.UML, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\sharpDoxSDK.1.0\lib\net40\SharpDox.UML.dll</HintPath>
+      <HintPath>..\packages\sharpDoxSDK.1.1.1\lib\net40\SharpDox.UML.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
